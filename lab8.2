@@ -1,0 +1,17 @@
+#!/bin/bash
+
+CONDITION1=$(df -m | grep "/$" | awk '{ print $4 }')
+CONDITION2=$(free -m | grep "^Mem:" | awk '{ print $4 }')
+
+if [ "$CONDITION1" -le $((1024 * 3)) ] && [ "$CONDITION2" -le 512 ]
+then
+	echo warning: low system resource
+elif [ "$CONDITION1" -le $((1024 * 3)) ]
+then
+	echo warning: low disk space available
+elif [ "$CONDITION2" -le 512 ]
+then
+	echo warning: memory is low
+else
+	echo all is good
+fi

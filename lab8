@@ -1,0 +1,17 @@
+#!/bin/bash
+
+CONDITION1=$(df -hT /dev/vda2 | awk -F" " '$5 < 50 { print $5 }')
+CONDITION2=$(free -m | awk -F" " '/Mem/ && $4 < 10 { print $4 }')
+
+if [ -n "$CONDITION1" ] && [ -n "$CONDITION2" ]
+then
+	echo WARNING LOW SYSTEM RESOURCE
+elif [ -n "$CONDITION1" ]
+then
+	echo WARNING LOW DISK SPACE AVAILABLE
+elif [ -n "$CONDITION2" ]
+then
+	echo WARNIG LOW MEMORY AVAILABLE
+else
+	echo ALL IS GOOD
+fi

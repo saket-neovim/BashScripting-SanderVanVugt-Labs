@@ -1,0 +1,45 @@
+#!/bin/bash
+
+if grep -i 'ubuntu' /etc/os-release > /dev/null
+then
+	PACKAGE_MANAGER=apt
+fi
+
+if grep -i 'red hat' /etc/os-release > /dev/null
+then
+	PACKAGE_MANAGER=yum
+fi
+
+if [ -z $1 ]
+then
+	echo enter the name of the package you want to install
+	read PACKAGE
+else
+	PACKAGE=$1
+fi
+
+## Debugging
+echo PACKAGE_MANAGER=$PACKAGE_MANAGER
+echo PACKAGE=$PACKAGE
+
+sudo $PACKAGE_MANAGER install $PACKAGE -y
+//""/g
+//""/g
+//""/g
+//""/g
+//""/g
+//""/g
+//""/g
+//""/g
+//""/g
+//""/g
+//""/g
+///g
+///g
+///g
+///g
+///g
+///g
+///g
+///g
+
