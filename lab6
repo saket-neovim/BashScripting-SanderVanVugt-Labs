@@ -1,23 +1,4 @@
 #!/bin/bash
 PACKAGE=$1
 sudo apt-get install -y $PACKAGE
-//""/g
-//""/g
-//""/g
-//""/g
-//""/g
-//""/g
-//""/g
-//""/g
-//""/g
-//""/g
-//""/g
-///g
-///g
-///g
-///g
-///g
-///g
-///g
-///g
 sudo systemctl enable --now $PACKAGE
