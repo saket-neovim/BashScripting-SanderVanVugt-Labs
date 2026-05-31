@@ -1,6 +1,5 @@
 #!/bin/bash
 
-MEMORY=$( free -m | awk ' NR==2 { print $4}')
 
 if [ "$#" -eq 0 ]
 then
@@ -10,6 +9,8 @@ fi
 
 for SERVICE in "$@"
 do
+	MEMORY=$( free -m | awk ' NR==2 { print $4}')
+
 	if [ $MEMORY -le 256 ]
 	then
 		echo memory is low
