@@ -1,0 +1,22 @@
+#!/bin/bash
+
+MEMORY=$( free -m | awk ' NR==2 { print $4}')
+
+if [ "$#" -eq 0 ]
+then
+	echo "Service names must be passed as arguments"
+	exit 1
+fi
+
+for SERVICE in "$@"
+do
+	if [ $MEMORY -le 256 ]
+	then
+		echo memory is low
+		break
+	fi
+	
+	sudo apt-get install -y "$SERVICE"	
+	sudo systemctl enable --now "$SERVICE"
+done
+
